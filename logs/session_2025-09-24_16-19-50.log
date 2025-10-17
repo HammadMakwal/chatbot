@@ -1,0 +1,4 @@
+2025-09-24 16:19:50,989 - INFO - Starting run_query_reload.py (prefix=chat_index, topk=4, generator=disabled)
+2025-09-24 16:19:50,989 - INFO - Loaded 4 docs from chat_index_docs.json
+2025-09-24 16:19:50,997 - INFO - Loading embedder model: all-MiniLM-L6-v2
+2025-09-24 16:19:56,652 - INFO - Loaded FAISS index: chat_index.faiss (ntotal=4)

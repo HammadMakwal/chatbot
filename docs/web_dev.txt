@@ -1,0 +1,2 @@
+Web development involves building websites and applications.
+Python frameworks like Django and Flask are popular for backend development.

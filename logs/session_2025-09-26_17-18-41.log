@@ -1,0 +1,6 @@
+2025-09-26 17:18:41,831 - INFO - Starting run_query_reload.py (prefix=chat_index, topk=4, generator=disabled, rerank=False)
+2025-09-26 17:18:41,831 - INFO - Loaded 4 docs from chat_index_docs.json
+2025-09-26 17:18:41,831 - INFO - Loading embedder model: all-MiniLM-L6-v2
+2025-09-26 17:18:46,895 - INFO - Loaded FAISS index: chat_index.faiss (ntotal=4, metric=0)
+2025-09-26 17:18:46,910 - INFO - Ready to query.
+2025-09-26 17:19:39,503 - INFO - Session ended.

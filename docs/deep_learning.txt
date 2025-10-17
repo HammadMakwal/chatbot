@@ -1,0 +1,2 @@
+Deep learning uses artificial neural networks with many layers.
+It is especially effective for images, speech, and natural language processing.

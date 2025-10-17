@@ -1,0 +1,6 @@
+2025-10-13 13:14:43,092 - INFO - Loading docs from chat_index_docs.json
+2025-10-13 13:14:43,097 - INFO - Docs loaded: 4
+2025-10-13 13:14:43,097 - INFO - Loading embedder model: all-MiniLM-L6-v2
+2025-10-13 13:14:50,423 - INFO - Loading FAISS index: chat_index.faiss
+2025-10-13 13:14:50,449 - INFO - Loaded FAISS ntotal=4
+2025-10-13 13:14:53,383 - INFO - Generator loaded.

@@ -1,0 +1,8 @@
+2025-10-03 15:06:52,890 - INFO - Starting run_query_reload.py (prefix=chat_index, topk=4, generator=disabled, rerank=True)
+2025-10-03 15:06:52,905 - INFO - Loaded 4 docs from chat_index_docs.json
+2025-10-03 15:06:52,905 - INFO - Loading embedder model: all-MiniLM-L6-v2
+2025-10-03 15:06:57,858 - INFO - Loaded FAISS index: chat_index.faiss (ntotal=4, metric=0)
+2025-10-03 15:06:57,858 - INFO - Loading reranker model: cross-encoder/ms-marco-MiniLM-L-6-v2
+2025-10-03 15:07:01,030 - INFO - Reranker loaded.
+2025-10-03 15:07:01,030 - INFO - Ready to query.
+2025-10-03 15:08:06,323 - INFO - Session ended.

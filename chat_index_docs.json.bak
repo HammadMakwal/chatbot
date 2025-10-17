@@ -1,0 +1,14 @@
+{
+  "files": [
+    "deep_learning.txt",
+    "ml_intro.txt",
+    "python_basics.txt",
+    "web_dev.txt"
+  ],
+  "docs": [
+    "Deep learning uses artificial neural networks with many layers.\nIt is especially effective for images, speech, and natural language processing.",
+    "Machine learning is the process of teaching computers to learn patterns from data.\nIt includes supervised learning, unsupervised learning, and reinforcement learning.",
+    "Python is a powerful programming language.\nIt is widely used in data science, AI, and web development.",
+    "Web development involves building websites and applications.\nPython frameworks like Django and Flask are popular for backend development."
+  ]
+}

@@ -1,0 +1,55 @@
+2025-09-23 16:16:50,488 - INFO - Starting run_query_reload.py (prefix=chat_index, topk=4, generator=disabled)
+2025-09-23 16:16:50,488 - INFO - Loaded 5 docs from chat_index_docs.json
+2025-09-23 16:16:55,815 - INFO - Loaded embedder: all-MiniLM-L6-v2
+2025-09-23 16:16:55,815 - INFO - Loaded FAISS index: chat_index.faiss (ntotal=5)
+2025-09-23 16:17:15,924 - INFO - User: what is python?
+2025-09-23 16:17:15,955 - INFO - Bot (retrieved): Python is a powerful programming language.
+It is widely used in data science, AI, and web development.
+
+Web development involves building websites and applications.
+Python frameworks like Django and Flask are popular for backend development.
+2025-09-23 16:18:39,994 - INFO - User: what is deep learning?
+2025-09-23 16:18:40,025 - INFO - Bot (retrieved): Deep learning uses artificial neural networks with many layers.
+It is especially effective for images, speech, and natural language processing.
+
+Machine learning is the process of teaching computers to learn patterns from data.
+It includes supervised learning, unsupervised learning, and reinforcement learning.
+2025-09-23 16:19:18,831 - INFO - User: how to adopt a cat?
+2025-09-23 16:19:18,867 - INFO - Bot (retrieved): # run_query.py
+import os
+import faiss
+import json
+from sentence_transformers import SentenceTransformer
+
+# 1. Folder containing your text files
+DOCS_FOLDER = "docs"   # create a folder called 'docs' in the same place as this script
+
+# 2. Collect all .txt files
+documents = []
+file_names = []
+
+for file in os.listdir(DOCS_FOLDER):
+    if file.endswith(".txt"):
+        path = os.path.join(DOCS_FOLDER, file)
+        with open(path, "r", encoding="utf-8") as f:
+            text = f.read().strip()
+            if text:  # skip empty files
+                documents.append(text)
+                file_names.append(file)
+
+if not documents:
+    print("⚠️ No .txt files found in 'docs' folder. Please add some text files.")
+    exit()
+
+print(f"Loaded {len(documents)} documents from {DOCS_FOLDER}")
+
+# 3. Load model
+model = SentenceTransformer("all-MiniLM-L6-v2")
+
+# 4. Create embeddings
+embeddings = model.encode(documents)
+
+# 5. Build FAISS index
+dimension = embeddings.shape[1]
+index = faiss.IndexFlatL2(
+2025-09-23 16:28:10,601 - INFO - Session ended.

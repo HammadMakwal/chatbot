@@ -1,0 +1,22 @@
+{
+  "0": {
+    "content": "Deep learning uses artificial neural networks with many layers.\nIt is especially effective for images, speech, and natural language processing.",
+    "file": "deep_learning.txt"
+  },
+  "1": {
+    "content": "# run_query.py\nimport os\nimport faiss\nimport json\nfrom sentence_transformers import SentenceTransformer\n\n# 1. Folder containing your text files\nDOCS_FOLDER = \"docs\"   # create a folder called 'docs' in the same place as this script\n\n# 2. Collect all .txt files\ndocuments = []\nfile_names = []\n\nfor file in os.listdir(DOCS_FOLDER):\n    if file.endswith(\".txt\"):\n        path = os.path.join(DOCS_FOLDER, file)\n        with open(path, \"r\", encoding=\"utf-8\") as f:\n            text = f.read().strip()\n            if text:  # skip empty files\n                documents.append(text)\n                file_names.append(file)\n\nif not documents:\n    print(\"⚠️ No .txt files found in 'docs' folder. Please add some text files.\")\n    exit()\n\nprint(f\"Loaded {len(documents)} documents from {DOCS_FOLDER}\")\n\n# 3. Load model\nmodel = SentenceTransformer(\"all-MiniLM-L6-v2\")\n\n# 4. Create embeddings\nembeddings = model.encode(documents)\n\n# 5. Build FAISS index\ndimension = embeddings.shape[1]\nindex = faiss.IndexFlatL2(dimension)\nindex.add(embeddings)\n\n# 6. Save FAISS index\nfaiss.write_index(index, \"chat_index.faiss\")\n\n# 7. Save documents + file names for lookup\ndoc_info = [{\"file\": fn, \"content\": doc} for fn, doc in zip(file_names, documents)]\nwith open(\"chat_index_docs.json\", \"w\", encoding=\"utf-8\") as f:\n    json.dump(doc_info, f, indent=2, ensure_ascii=False)\n\nprint(\"✅ Index built and saved: chat_index.faiss + chat_index_docs.json\")",
+    "file": "docs.py"
+  },
+  "2": {
+    "content": "Machine learning is the process of teaching computers to learn patterns from data.\nIt includes supervised learning, unsupervised learning, and reinforcement learning.",
+    "file": "ml_intro.txt"
+  },
+  "3": {
+    "content": "Python is a powerful programming language.\nIt is widely used in data science, AI, and web development.",
+    "file": "python_basics.txt"
+  },
+  "4": {
+    "content": "Web development involves building websites and applications.\nPython frameworks like Django and Flask are popular for backend development.",
+    "file": "web_dev.txt"
+  }
+}

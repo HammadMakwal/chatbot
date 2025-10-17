@@ -1,0 +1,2 @@
+Machine learning is the process of teaching computers to learn patterns from data.
+It includes supervised learning, unsupervised learning, and reinforcement learning.

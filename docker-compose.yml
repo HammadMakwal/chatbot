@@ -1,0 +1,25 @@
+services:
+  app:
+    build: .
+    image: chatbot:local
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./chat_index.faiss:/app/chat_index.faiss:rw
+      - ./chat_index_docs.json:/app/chat_index_docs.json:rw
+      - ./logs:/app/logs
+      - ./docs:/app/docs:ro
+      # optional: mount your local Hugging Face cache to avoid re-downloading models
+      # Windows example: replace with your path if different
+      - C:\Users\hibns\.cache\huggingface:/root/.cache/huggingface
+    environment:
+      - PYTHONUNBUFFERED=1
+      - LOGS_DIR=/app/logs
+      # toggle generator off by default; set to 'false' to enable generator
+      - NO_GENERATOR=true
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://127.0.0.1:8000/health || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
