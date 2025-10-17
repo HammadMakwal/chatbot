@@ -1,2 +1,2 @@
-# my-chatbot
+# chatbot
 Local FAISS + SentenceTransformers chatbot
